@@ -194,3 +194,5 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+code/AppDock.Desktop/LabApps.accdb
+code/AppDock.Desktop/Resources/logo.png
