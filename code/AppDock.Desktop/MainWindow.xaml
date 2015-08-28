@@ -1,0 +1,83 @@
+﻿<Controls:MetroWindow x:Class="AppDock.Desktop.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+                      Height="550"
+                      Width="275"
+                      MinWidth="250"
+                      MaxWidth="325"
+                      Loaded="MetroWindow_Loaded"
+                      WindowStartupLocation="CenterScreen"
+                      ResizeMode="CanResizeWithGrip"
+                      ShowIconOnTitleBar="False"
+                      Icon="Go.ico">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="403*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <ScrollViewer Margin="15"
+                      Grid.Row="1"
+                      Grid.RowSpan="1">
+            <ItemsControl Name="ApplicationsItemsControl">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Command="{Binding Path=ExecuteCommand}"
+                                Padding="15,15"
+                                Margin="2"
+                                Foreground="#FF444444"
+                                Cursor="Hand">
+                            <TextBlock Text="{Binding Label}"
+                                       TextWrapping="Wrap" />
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical"
+                                    CanVerticallyScroll="True" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+        <Image Margin="15,12,15,0"
+               x:Name="LogoImage"
+               VerticalAlignment="Top"
+               Source="/AppDock.Desktop;component/Resources/logo.png" />
+        <Button Content="Exit"
+                Cursor="Hand"
+                Grid.Row="2"
+                Height="29"
+                HorizontalAlignment="Right"
+                Margin="0,0,15,12"
+                Name="ExitButton"
+                VerticalAlignment="Bottom"
+                Width="75"
+                Click="ExitButton_Click" />
+        <Button Content="Manage"
+                Cursor="Hand"
+                Grid.Row="2"
+                HorizontalAlignment="Left"
+                Margin="15,0,0,12"
+                Name="ManageApplicationButton"
+                Height="29"
+                VerticalAlignment="Bottom"
+                Padding="5,6"
+                HorizontalContentAlignment="Left"
+                Click="ManageApplicationButton_Click" />
+        <Button Content="Reload"
+                Cursor="Hand"
+                Grid.Row="2"
+                HorizontalAlignment="Left"
+                Margin="74,0,0,12"
+                x:Name="ReloadApplicationButton"
+                Height="29"
+                VerticalAlignment="Bottom"
+                Padding="5,6"
+                HorizontalContentAlignment="Left"
+                Click="ReloadApplicationButton_Click" />
+    </Grid>
+</Controls:MetroWindow>
